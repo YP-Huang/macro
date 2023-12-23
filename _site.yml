@@ -12,7 +12,7 @@ navbar:
       
   left:
     - text: "Consumer Data"
-      href: "Consumer"
+      href: "Consumer.html"
 
     - text: "GDP"
       menu:
