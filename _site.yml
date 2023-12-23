@@ -1,4 +1,4 @@
-name: "macro"
+name: "macro data"
 title: "macro"
 description: |
   macro
@@ -11,12 +11,14 @@ navbar:
       href: about.html
       
   left:
-    - text: "All the charts"
+    - text: "Consumer Data"
+      href: "Consumer"
+
+    - text: "GDP"
       menu:
       - text: "USA"
         href: "usa"
       - text: "Japan"
         href: "japan"
-    - text: "Reserved space"
 
 output: distill::distill_article
