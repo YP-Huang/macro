@@ -1,0 +1,21 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this site",
+      "description": "This site is to track Macro data for key countries. ",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2023-12-23T15:31:50+08:00"
+    },
+    {
+      "path": "index.html",
+      "title": "macro",
+      "description": "Welcome to the website. I hope you enjoy it!\n",
+      "author": [],
+      "contents": "\n\n\n\n",
+      "last_modified": "2023-12-23T15:30:16+08:00"
+    }
+  ],
+  "collections": []
+}

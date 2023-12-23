@@ -1,0 +1,10 @@
+---
+title: "About this site"
+description: |
+  This site is to track Macro data for key countries. 
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
