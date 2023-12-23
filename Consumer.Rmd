@@ -28,19 +28,31 @@ for (p in packages){
 ```{r, echo = FALSE, include=TRUE}
 uom_cs <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "UOM_CS")
 
+cpi <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "CPI")
+
 ```
 
+1. UOM Consumer Sentiment
+Source: University of Michigan
 
-```{r, echo = FALSE, layout = "l-body-outset", fig.width=20, fig.height=8, include=TRUE}
+```{r, echo = FALSE, fig.width=14, fig.height=8, include=TRUE}
 ggplot(data = uom_cs, 
        aes(x = Release_Date, y = Actual)) +
   geom_line()+
-  geom_vline(xintercept=43917,
-             color="red",
-             linetype="dashed",
-             size=2)+
   theme_economist()+
   labs(x = "Year",
        y = "Consumer Sentiment",
        title = "UOM Consumer Sentiment")
+```
+
+2. Consumer Price Index (CPI)
+```{r, echo = FALSE, fig.width=14, fig.height=8, include=TRUE}
+
+ggplot(data = cpi, 
+       aes(x = Date, y = CPI)) +
+  geom_line()+
+  theme_economist()+
+  labs(x = "Year",
+       y = "CPI",
+       title = "CPI since 2020")
 ```
