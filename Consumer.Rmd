@@ -28,7 +28,11 @@ for (p in packages){
 ```{r, echo = FALSE, include=TRUE}
 uom_cs <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "UOM_CS")
 
-cpi <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "CPI")
+cpi <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "CPI(2)")
+
+cpe <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "CPE")
+
+job_claim <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "Jb_claim")
 
 ```
 
@@ -55,4 +59,40 @@ ggplot(data = cpi,
   labs(x = "Year",
        y = "CPI",
        title = "CPI since 2020")
+```
+
+3. Personal Consumption Expenditures Price Index (PCE)
+
+```{r, echo = FALSE, fig.width=6, fig.height=4, include=TRUE}
+
+start_date <- as.POSIXct("2019-01-01")
+end_date <- as.POSIXct("2023-11-01")
+cpe <- cpe[cpe$observation_date >= start_date & cpe$observation_date <= end_date,]
+
+ggplot(data = cpe, 
+       aes(x = observation_date, y = PCE)) +
+  geom_line()+
+  theme_economist()+
+  labs(x = "Year",
+       y = "CPE",
+       title = "Personal Consumption Expenditures")
+```
+
+
+4. Continued Claims (Insured Unemployment) (CCSA)
+
+```{r, echo = FALSE, fig.width=6, fig.height=4, include=TRUE}
+
+start_date <- as.POSIXct("2019-01-01")
+end_date <- as.POSIXct("2023-12-09")
+job_claim <- job_claim [job_claim$date >= start_date & job_claim$date <= end_date,]
+job_claim$CCSA_in_millions <- job_claim$CCSA / 1e6
+
+ggplot(data = job_claim, 
+       aes(x = date, y = CCSA_in_millions)) +
+  geom_line()+
+  theme_economist()+
+  labs(x = "Year",
+       y = "CCSA in millions",
+       title = "Weekly Continued Claims")
 ```

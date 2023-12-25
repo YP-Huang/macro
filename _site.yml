@@ -20,5 +20,10 @@ navbar:
         href: "usa"
       - text: "Japan"
         href: "japan"
+        
+    - text: "Stocks"
+      menu:
+      - text: "TSLA"
+        href: "tsla.html"
 
 output: distill::distill_article
