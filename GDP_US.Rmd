@@ -1,0 +1,55 @@
+---
+title: "US GDP"
+output: distill::distill_article
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{css}
+.figure {
+  text-align: center;
+}
+.figure p {
+  font-size: 18px;
+}
+```
+
+```{r, echo = FALSE, include=TRUE}
+
+packages = c('readxl', 'tidyverse', 'ggridges', 'ggthemes')
+
+for (p in packages){
+  if(!require(p, character.only = T)){
+    install.packages(p) 
+  }
+  library(p, character.only = T)
+}
+```
+
+
+```{r, echo = FALSE, include=TRUE}
+us_gdp <- readxl::read_xls(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/GDP.xls")
+```
+
+1. US GDP
+
+Source: U.S. Bureau of Economic Analysis  
+
+Gross domestic product (GDP), the featured measure of U.S. output, is the market value of the goods and services produced by labor and property located in the United States.
+
+```{r, echo = FALSE, fig.width=16, fig.height=12, include=TRUE}
+
+start_date <- as.POSIXct("2019-01-01")
+us_gdp <- us_gdp[us_gdp$observation_date >= start_date,]
+
+ggplot(data = us_gdp, 
+       aes(x = observation_date, y = GDP)) +
+  geom_line()+
+  theme_economist()+
+  labs(x = "Year",
+       y = "GDP in Billions",
+       title = "US GDP")
+
+```

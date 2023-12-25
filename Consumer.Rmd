@@ -2,8 +2,6 @@
 title: "US Consumer Data"
 description: |
   ALL consumer data in one place
-author:
-  - name: Amber H
 output: distill::distill_article
 ---
 
@@ -11,6 +9,14 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{css}
+.figure {
+  text-align: center;
+}
+.figure p {
+  font-size: 24px;
+}
+```
 
 ```{r, echo = FALSE, include=TRUE}
 
@@ -34,12 +40,16 @@ cpe <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data
 
 job_claim <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "Jb_claim")
 
+retail <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "Retail")
+
 ```
 
 1. UOM Consumer Sentiment
+
 Source: University of Michigan
 
-```{r, echo = FALSE, fig.width=14, fig.height=8, include=TRUE}
+```{r, echo = FALSE, fig.width=16, fig.height=12, include=TRUE}
+
 ggplot(data = uom_cs, 
        aes(x = Release_Date, y = Actual)) +
   geom_line()+
@@ -47,10 +57,19 @@ ggplot(data = uom_cs,
   labs(x = "Year",
        y = "Consumer Sentiment",
        title = "UOM Consumer Sentiment")
+
 ```
 
 2. Consumer Price Index (CPI)
-```{r, echo = FALSE, fig.width=14, fig.height=8, include=TRUE}
+
+Source: U.S. Bureau of Labor Statistics  
+
+Consumer Price Index for All Urban Consumers: All Items in U.S. City Average
+
+```{r, echo = FALSE, fig.width=16, fig.height=12, include=TRUE}
+
+start_date <- as.POSIXct("2019-01-01")
+cpi <- cpi[cpi$Date >= start_date,]
 
 ggplot(data = cpi, 
        aes(x = Date, y = CPI)) +
@@ -58,12 +77,16 @@ ggplot(data = cpi,
   theme_economist()+
   labs(x = "Year",
        y = "CPI",
-       title = "CPI since 2020")
+       title = "CPI since year 2019")
+
 ```
 
 3. Personal Consumption Expenditures Price Index (PCE)
 
-```{r, echo = FALSE, fig.width=6, fig.height=4, include=TRUE}
+Source: U.S. Bureau of Economic Analysis  
+In Billions of Dollars
+
+```{r, echo = FALSE, fig.width=16, fig.height=12, include=TRUE}
 
 start_date <- as.POSIXct("2019-01-01")
 end_date <- as.POSIXct("2023-11-01")
@@ -74,25 +97,55 @@ ggplot(data = cpe,
   geom_line()+
   theme_economist()+
   labs(x = "Year",
-       y = "CPE",
+       y = "CPE in US$bn",
        title = "Personal Consumption Expenditures")
 ```
 
 
-4. Continued Claims (Insured Unemployment) (CCSA)
+4. Initial and Continued Claims (CCSA, ICSA)
 
-```{r, echo = FALSE, fig.width=6, fig.height=4, include=TRUE}
+Source: U.S. Employment and Training Administration 
+
+An initial claim is a claim filed by an unemployed individual after a separation from an employer. The claim requests a determination of basic eligibility for the Unemployment Insurance program.
+
+Continued claims, also referred to as insured unemployment, is the number of people who have already filed an initial claim and who have experienced a week of unemployment and then filed a continued claim to claim benefits for that week of unemployment. Continued claims data are based on the week of unemployment, not the week when the initial claim was filed.
+
+```{r echo=FALSE, fig.width=16, fig.height=12, include=TRUE}
 
 start_date <- as.POSIXct("2019-01-01")
 end_date <- as.POSIXct("2023-12-09")
 job_claim <- job_claim [job_claim$date >= start_date & job_claim$date <= end_date,]
 job_claim$CCSA_in_millions <- job_claim$CCSA / 1e6
+job_claim$ICSA_in_millions <- job_claim$ICSA / 1e6
 
 ggplot(data = job_claim, 
-       aes(x = date, y = CCSA_in_millions)) +
+       aes(x = date)) +
+  geom_line(aes(y = CCSA_in_millions), color = "red")+
+  geom_line(aes(y = ICSA_in_millions), color = "black", linetype = "dashed")+
+  theme_economist()+
+  labs(x = "Year",
+       y = "CCSA/ICSA in millions",
+       title = "Weekly Initial and Continued Claims")
+```
+
+
+5. Retails Sales 
+
+Source: U.S. Census Bureau  
+
+E-commerce sales are included in the total monthly sales estimates.
+The value for the most recent month is an advance estimate that is based on data from a subsample of firms from the larger Monthly Retail Trade Survey. The advance estimate will be superseded in following months by revised estimates derived from the larger Monthly Retail Trade Survey.
+
+```{r, echo = FALSE, fig.width=16, fig.height=12, include=TRUE}
+start_date <- as.POSIXct("2019-01-01")
+end_date <- as.POSIXct("2023-12-01")
+retail <- retail[retail$date >= start_date & retail$date <= end_date,]
+
+ggplot(data = retail, 
+       aes(x = date, y = RSXFS)) +
   geom_line()+
   theme_economist()+
   labs(x = "Year",
-       y = "CCSA in millions",
-       title = "Weekly Continued Claims")
+       y = "Retail Sales",
+       title = "Retails Sales")
 ```

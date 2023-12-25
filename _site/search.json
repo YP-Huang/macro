@@ -12,22 +12,24 @@
       "path": "Consumer.html",
       "title": "US Consumer Data",
       "description": "ALL consumer data in one place\n",
-      "author": [
-        {
-          "name": "Amber H",
-          "url": {}
-        }
-      ],
-      "contents": "\n\n\n\n\n\n\nUOM Consumer Sentiment\nSource: University of Michigan\n\n\n\nConsumer Price Index (CPI)\n\n\nPersonal Consumption Expenditures Price Index (PCE)\n\n\n\nContinued Claims (Insured Unemployment) (CCSA)\n\n\n\n\n\n\n",
-      "last_modified": "2023-12-25T12:31:26+08:00"
+      "author": [],
+      "contents": "\n\n\n\n\n\n\n\n\nUOM Consumer Sentiment\nSource: University of Michigan\n\n\n\nConsumer Price Index (CPI)\nSource: U.S. Bureau of Labor Statistics\nConsumer Price Index for All Urban Consumers: All Items in U.S. City Average\n\n\n\nPersonal Consumption Expenditures Price Index (PCE)\nSource: U.S. Bureau of Economic Analysis\nIn Billions of Dollars\n\n\n\nInitial and Continued Claims (CCSA, ICSA)\nSource: U.S. Employment and Training Administration\nAn initial claim is a claim filed by an unemployed individual after a separation from an employer. The claim requests a determination of basic eligibility for the Unemployment Insurance program.\nContinued claims, also referred to as insured unemployment, is the number of people who have already filed an initial claim and who have experienced a week of unemployment and then filed a continued claim to claim benefits for that week of unemployment. Continued claims data are based on the week of unemployment, not the week when the initial claim was filed.\n\n\n\nRetails Sales\nSource: U.S. Census Bureau\nE-commerce sales are included in the total monthly sales estimates.\nThe value for the most recent month is an advance estimate that is based on data from a subsample of firms from the larger Monthly Retail Trade Survey. The advance estimate will be superseded in following months by revised estimates derived from the larger Monthly Retail Trade Survey.\n\n\n\n\n\n\n",
+      "last_modified": "2023-12-25T20:30:07+08:00"
+    },
+    {
+      "path": "GDP_US.html",
+      "title": "US GDP",
+      "author": [],
+      "contents": "\n\n\n\n\n\n\n\n\nUS GDP\nSource: U.S. Bureau of Economic Analysis\nGross domestic product (GDP), the featured measure of U.S. output, is the market value of the goods and services produced by labor and property located in the United States.\n\n\n\n\n\n\n",
+      "last_modified": "2023-12-25T20:38:42+08:00"
     },
     {
       "path": "index.html",
-      "title": "macro",
+      "title": "MACRO",
       "description": "Welcome to the website. I hope you enjoy it!\n",
       "author": [],
       "contents": "\n\n\n\n",
-      "last_modified": "2023-12-25T13:40:45+08:00"
+      "last_modified": "2023-12-25T20:29:32+08:00"
     }
   ],
   "collections": []

@@ -88,30 +88,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>macro: US Consumer Data</title>
+  <title>MACRO: US Consumer Data</title>
 
   <meta property="description" itemprop="description" content="ALL consumer data in one place"/>
 
 
-  <meta name="article:author" content="Amber H"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="macro: US Consumer Data"/>
+  <meta property="og:title" content="MACRO: US Consumer Data"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="ALL consumer data in one place"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="macro"/>
+  <meta property="og:site_name" content="MACRO"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="macro: US Consumer Data"/>
+  <meta property="twitter:title" content="MACRO: US Consumer Data"/>
   <meta property="twitter:description" content="ALL consumer data in one place"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","output"]}},"value":[{"type":"character","attributes":{},"value":["US Consumer Data"]},{"type":"character","attributes":{},"value":["ALL consumer data in one place\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Amber H"]}]}]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["US Consumer Data"]},{"type":"character","attributes":{},"value":["ALL consumer data in one place\n"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2119,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"US Consumer Data","description":"ALL consumer data in one place","authors":[{"author":"Amber H","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}]}
+{"title":"US Consumer Data","description":"ALL consumer data in one place","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2128,7 +2127,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">macro</a>
+<a href="index.html" class="title">MACRO</a>
 <a href="Consumer.html">Consumer Data</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
@@ -2137,8 +2136,8 @@ GDP
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="usa">USA</a>
-<a href="japan">Japan</a>
+<a href="usa.html">USA</a>
+<a href="japan.html">Japan</a>
 </div>
 </div>
 <div class="nav-dropdown">
@@ -2171,13 +2170,18 @@ Stocks
 <p><p>ALL consumer data in one place</p></p>
 </div>
 
-<div class="d-byline">
-  Amber H  
-  
-
-</div>
 
 <div class="d-article">
+<div class="layout-chunk" data-layout="l-body">
+<style type="text/css">
+.figure {
+  text-align: center;
+}
+.figure p {
+  font-size: 24px;
+}
+</style>
+</div>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
@@ -2185,29 +2189,45 @@ Stocks
 
 </div>
 <ol type="1">
-<li>UOM Consumer Sentiment
-Source: University of Michigan</li>
+<li>UOM Consumer Sentiment</li>
 </ol>
+<p>Source: University of Michigan</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Consumer_files/figure-html5/unnamed-chunk-3-1.png" width="1344" /></p>
+<p><img src="Consumer_files/figure-html5/unnamed-chunk-4-1.png" width="1536" /></p>
 </div>
 <ol start="2" type="1">
-<li>Consumer Price Index (CPI)
-<div class="layout-chunk" data-layout="l-body">
-<img src="Consumer_files/figure-html5/unnamed-chunk-4-1.png" width="1344" /></li>
+<li>Consumer Price Index (CPI)</li>
 </ol>
+<p>Source: U.S. Bureau of Labor Statistics</p>
+<p>Consumer Price Index for All Urban Consumers: All Items in U.S. City Average</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Consumer_files/figure-html5/unnamed-chunk-5-1.png" width="1536" /></p>
 </div>
 <ol start="3" type="1">
 <li>Personal Consumption Expenditures Price Index (PCE)</li>
 </ol>
+<p>Source: U.S. Bureau of Economic Analysis<br />
+In Billions of Dollars</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Consumer_files/figure-html5/unnamed-chunk-5-1.png" width="576" /></p>
+<p><img src="Consumer_files/figure-html5/unnamed-chunk-6-1.png" width="1536" /></p>
 </div>
 <ol start="4" type="1">
-<li>Continued Claims (Insured Unemployment) (CCSA)</li>
+<li>Initial and Continued Claims (CCSA, ICSA)</li>
 </ol>
+<p>Source: U.S. Employment and Training Administration</p>
+<p>An initial claim is a claim filed by an unemployed individual after a separation from an employer. The claim requests a determination of basic eligibility for the Unemployment Insurance program.</p>
+<p>Continued claims, also referred to as insured unemployment, is the number of people who have already filed an initial claim and who have experienced a week of unemployment and then filed a continued claim to claim benefits for that week of unemployment. Continued claims data are based on the week of unemployment, not the week when the initial claim was filed.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="Consumer_files/figure-html5/unnamed-chunk-6-1.png" width="576" /></p>
+<p><img src="Consumer_files/figure-html5/unnamed-chunk-7-1.png" width="1536" /></p>
+</div>
+<ol start="5" type="1">
+<li>Retails Sales</li>
+</ol>
+<p>Source: U.S. Census Bureau</p>
+<p>E-commerce sales are included in the total monthly sales estimates.
+The value for the most recent month is an advance estimate that is based on data from a subsample of firms from the larger Monthly Retail Trade Survey. The advance estimate will be superseded in following months by revised estimates derived from the larger Monthly Retail Trade Survey.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="Consumer_files/figure-html5/unnamed-chunk-8-1.png" width="1536" /></p>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

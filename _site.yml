@@ -1,5 +1,5 @@
 name: "macro data"
-title: "macro"
+title: "MACRO"
 description: |
   macro
 output_dir: "_site"
@@ -17,9 +17,9 @@ navbar:
     - text: "GDP"
       menu:
       - text: "USA"
-        href: "usa"
+        href: "usa.html"
       - text: "Japan"
-        href: "japan"
+        href: "japan.html"
         
     - text: "Stocks"
       menu:
