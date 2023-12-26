@@ -11,15 +11,11 @@ navbar:
       href: about.html
       
   left:
-    - text: "Consumer Data"
+    - text: "US Consumer Data"
       href: "Consumer.html"
 
     - text: "GDP"
-      menu:
-      - text: "USA"
-        href: "usa.html"
-      - text: "Japan"
-        href: "japan.html"
+      href: "GDP.html"
         
     - text: "Stocks"
       menu:

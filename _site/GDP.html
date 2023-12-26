@@ -88,30 +88,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>macro: GDP</title>
+  <title>MACRO: GDP Growth Rate</title>
 
 
 
-  <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-12-25"/>
-  <meta property="article:created" itemprop="dateCreated" content="2023-12-25"/>
-  <meta name="article:author" content="Amber H"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="macro: GDP"/>
+  <meta property="og:title" content="MACRO: GDP Growth Rate"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="macro"/>
+  <meta property="og:site_name" content="MACRO"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="macro: GDP"/>
+  <meta property="twitter:title" content="MACRO: GDP Growth Rate"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","author","date"]}},"value":[{"type":"character","attributes":{},"value":["GDP"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Amber H"]}]}]},{"type":"character","attributes":{},"value":["2023-12-25"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output"]}},"value":[{"type":"character","attributes":{},"value":["GDP Growth Rate"]},{"type":"character","attributes":{},"value":["distill::distill_article"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2120,7 +2116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"GDP","authors":[{"author":"Amber H","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-12-25T00:00:00.000+08:00","citationText":"H, 2023"}
+{"title":"GDP Growth Rate","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2128,19 +2124,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title">macro</a>
-<a href="Consumer.html">Consumer Data</a>
-<div class="nav-dropdown">
-<button class="nav-dropbtn">
-GDP
- 
-<span class="down-arrow">&#x25BE;</span>
-</button>
-<div class="nav-dropdown-content">
-<a href="usa.html">USA</a>
-<a href="japan.html">Japan</a>
-</div>
-</div>
+<a href="index.html" class="title">MACRO</a>
+<a href="Consumer.html">US Consumer Data</a>
+<a href="GDP.html">GDP</a>
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
 Stocks
@@ -2164,39 +2150,47 @@ Stocks
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>GDP</h1>
+<h1>GDP Growth Rate</h1>
 
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
 </div>
 
-<div class="d-byline">
-  
-  Amber H
-  
-<br/>2023-12-25
-</div>
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>cars</span><span class='op'>)</span></span></code></pre>
+<style type="text/css">
+.figure {
+  text-align: center;
+}
+.figure p {
+  font-size: 18px;
+}
+</style>
 </div>
-<pre><code>     speed           dist       
- Min.   : 4.0   Min.   :  2.00  
- 1st Qu.:12.0   1st Qu.: 26.00  
- Median :15.0   Median : 36.00  
- Mean   :15.4   Mean   : 42.98  
- 3rd Qu.:19.0   3rd Qu.: 56.00  
- Max.   :25.0   Max.   :120.00  </code></pre>
-</div>
-<h2 id="including-plots">Including Plots</h2>
-<p>You can also embed plots, for example:</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="GDP_files/figure-html5/pressure-1.png" width="624" /></p>
+
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<ol type="1">
+<li>US GDP</li>
+</ol>
+<p>Source: U.S. Bureau of Economic Analysis</p>
+<p>Gross domestic product (GDP), the featured measure of U.S. output, is the market value of the goods and services produced by labor and property located in the United States.</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="GDP_files/figure-html5/unnamed-chunk-4-1.png" width="1536" /></p>
+</div>
+<ol start="2" type="1">
+<li>Real GDP growth Annual percent change</li>
+</ol>
+<p>Source: IMF (<a href="https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/OEMDC/ADVEC" class="uri">https://www.imf.org/external/datamapper/NGDP_RPCH@WEO/OEMDC/ADVEC</a>)</p>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="GDP_files/figure-html5/unnamed-chunk-5-1.png" width="1536" /></p>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
