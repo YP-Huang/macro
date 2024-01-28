@@ -1,7 +1,7 @@
 ---
 title: "US Consumer Data"
 description: |
-  ALL consumer data in one place
+  Summary: consumer sentiment improved with inflation tammed. However unemployment is uptrending. 
 output: distill::distill_article
 ---
 
@@ -38,7 +38,7 @@ cpi <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data
 
 cpi_i <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "CPI_I")
 
-cpe <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "CPE")
+unrate <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "unrate")
 
 job_claim <- readxl::read_xlsx(path = "/Users/yapinghuang/Desktop/Year 2024/macro/data/data.xlsx", sheet = "Jb_claim")
 
@@ -95,8 +95,6 @@ Consumer Price Index (CPI) measures the monthly change in prices paid by U.S. co
 The Bureau of Labor Statistics (BLS) calculates the CPI as a weighted average of prices for a basket of goods and services representative of aggregate U.S. consumer spending.
 Index 1982-1984=100, Seasonally Adjusted. 
 
-Inflation Rate= (New CPI−Prior CPI)/Prior CPI x 100
-
 Comments: CPI has dropped from highest point at 9% to 3.3% in Dec 2023; however it is still higher than FED target at 2%. 
 
 ```{r, echo = FALSE, fig.width=12, fig.height=8, include=TRUE}
@@ -127,35 +125,58 @@ p2 <- ggplot(data = cpi_i,
   labs(x = "Year",
        y = "CPI Rate",
        title = "CPI: All Items: Total for United States",
-       caption = "Source: OECD")+
-    geom_text(data = max_point, aes(label = paste("Max: ", CPI_I)), vjust = -0.2, hjust = 0.8)
+       caption = "Source: OECD Main Economic Indicators - complete database")+
+    geom_text(data = max_point, aes(label = paste("Max: ", round(CPI_I, digits = 2))), vjust = -0.2, hjust = 0.8)
 
 p1/p2
 
 ```
 
-3. Personal Consumption Expenditures Price Index (PCE)
+3. Unemployment Rate (Percent)
 
-In Billions of Dollars
+The unemployment rate represents the number of unemployed as a percentage of the labor force. Labor force data are restricted to people 16 years of age and older, who currently reside in 1 of the 50 states or the District of Columbia, who do not reside in institutions (e.g., penal and mental facilities, homes for the aged), and who are not on active duty in the Armed Forces.
+
+This rate is also defined as the U-3 measure of labor underutilization.
+
+Comments: Unemployment Rate largely recovered to pre-COVID level, however, recent 12 month data is trending upward. 
 
 ```{r, echo = FALSE, fig.width=12, fig.height=8, include=TRUE}
 
-start_date <- as.POSIXct("2019-01-01")
-end_date <- as.POSIXct("2023-11-01")
-cpe <- cpe[cpe$observation_date >= start_date & cpe$observation_date <= end_date,]
+start_date <- as.POSIXct("2017-01-01")
+start_date_1year <- as.POSIXct("2022-12-01")
 
-ggplot(data = cpe, 
-       aes(x = observation_date, y = PCE)) +
+unrate <- unrate[unrate$date >= start_date,]
+unrate_1year <- unrate[unrate$date >= start_date_1year,]
+
+max_point <- unrate[which.max(unrate$UNRATE), ]
+
+p1 <- ggplot(data = unrate, 
+       aes(x = date, y = UNRATE)) +
   geom_line()+
   theme_economist()+
   labs(x = "Year",
-       y = "CPE in US$bn",
+       y = "Unemployment rate in %",
        title = "Personal Consumption Expenditures",
-       caption = "Source: U.S. Bureau of Economic Analysis")
+       caption = "Source: U.S. Bureau of Labor Statics")+
+  geom_text(data = max_point, aes(label = paste("Max: ", UNRATE)), vjust = -0.2, hjust = 0.8)
+
+
+p2 <- ggplot(data = unrate_1year, 
+       aes(x = date, y = UNRATE)) +
+  geom_line()+
+  theme_economist()+
+  labs(x = "",
+       y = "",
+       title = "Past 1 year unemployment rate")
+
+p1 + inset_element(p2, 
+                   left = 0.55, 
+                   bottom = 0.5, 
+                   right = 1, 
+                   top = 0.95)
+
 ```
 4. Initial and Continued Claims (CCSA, ICSA)
-
-Source: U.S. Employment and Training Administration 
 
 An initial claim is a claim filed by an unemployed individual after a separation from an employer. The claim requests a determination of basic eligibility for the Unemployment Insurance program.
 
@@ -176,16 +197,14 @@ ggplot(data = job_claim,
   theme_economist()+
   labs(x = "Year",
        y = "CCSA/ICSA in millions",
-       title = "Weekly Initial and Continued Claims")
+       title = "Weekly Initial and Continued Claims",
+       caption = "Source: U.S. Employment and Training Administration")
 ```
 
 
 5. Retails Sales 
 
-Source: U.S. Census Bureau  
-
-E-commerce sales are included in the total monthly sales estimates.
-The value for the most recent month is an advance estimate that is based on data from a subsample of firms from the larger Monthly Retail Trade Survey. The advance estimate will be superseded in following months by revised estimates derived from the larger Monthly Retail Trade Survey.
+E-commerce sales are included. 
 
 ```{r, echo = FALSE, fig.width=12, fig.height=8, include=TRUE}
 start_date <- as.POSIXct("2019-01-01")
@@ -198,5 +217,6 @@ ggplot(data = retail,
   theme_economist()+
   labs(x = "Year",
        y = "Retail Sales",
-       title = "Retails Sales")
+       title = "Retails Sales",
+       caption = "Source: U.S. Census Bureau")
 ```
